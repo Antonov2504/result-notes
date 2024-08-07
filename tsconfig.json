@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./build/",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "checkJs": true,
+    "isolatedModules": true,
+    "noImplicitReturns": true,
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+    },
+    "removeComments": true,
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.json",
+    "webpack.config.js",
+    "dist",
+    "public"
+  ],
+  "include": [
+    ".eslintrc.cjs",
+    "src/**/*",
+    "*.config.ts"
+  ]
+}
