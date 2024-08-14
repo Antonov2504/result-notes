@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group, Skeleton, Stack, Text } from '@mantine/core';
+import { AppShell, Burger, Button, Group, Skeleton, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Note } from '@src/components/Note';
 import { SearchBox } from '@src/components/SearchBox';
@@ -18,9 +18,20 @@ export const NotesPage = () => {
       padding='md'
     >
       <AppShell.Header>
-        <Group h='100%' px='md'>
-          <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-          <SearchBox />
+        <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
+        <Group h='100%' px='md' >
+          <Group>
+            <SearchBox />
+            <Button variant='filled' color='green'>
+              Новая заметка
+            </Button>
+          </Group>
+          <Group ml='auto'>
+            <Text c='dimmed'>User Name</Text>
+            <Button variant='transparent' color='red' p={0}>
+              Выйти
+            </Button>
+          </Group>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p='md'>

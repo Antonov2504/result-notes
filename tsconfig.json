@@ -44,6 +44,7 @@
   "include": [
     ".eslintrc.cjs",
     "src/**/*",
-    "*.config.ts"
+    "*.config.ts",
+    "*.d.ts"
   ]
 }
