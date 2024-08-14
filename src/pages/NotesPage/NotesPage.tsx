@@ -1,5 +1,8 @@
-import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
+import { AppShell, Burger, Group, Skeleton, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { Note } from '@src/components/Note';
+import { SearchBox } from '@src/components/SearchBox';
+import { Workspace } from '@src/components/Workspace';
 
 export const NotesPage = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -17,18 +20,37 @@ export const NotesPage = () => {
       <AppShell.Header>
         <Group h='100%' px='md'>
           <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-          <div>Logo</div>
+          <SearchBox />
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p='md'>
-        Navbar
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} h={28} mt='sm' animate={false} />
-          ))}
+        <Stack h={300} bg='var(--mantine-color-body)' align='stretch' justify='flex-start' gap='md'>
+          <Note
+            title='Новая заметка'
+            description='Описание заметки'
+            createdAt={new Date().toLocaleString()}
+          />
+          <Note
+            title='Новая заметка'
+            description='Описание заметки'
+            createdAt={new Date().toLocaleString()}
+          />
+          <Note
+            title='Новая заметка'
+            description='Описание заметки'
+            createdAt={new Date().toLocaleString()}
+          />
+          <Text c='dimmed' mb={10} ta='left'>
+            Список будущих заметок...
+          </Text>
+        </Stack>
       </AppShell.Navbar>
-      <AppShell.Main>Main</AppShell.Main>
+      <AppShell.Main>
+        <Text c='dimmed' mb={10} ta='left'>
+          Добавьте Вашу первую заметку...
+        </Text>
+        <Workspace />
+      </AppShell.Main>
     </AppShell>
   );
 };
