@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   BackgroundImage,
   Box,
@@ -11,7 +12,6 @@ import {
   Title,
 } from '@mantine/core';
 import { hasLength, useForm } from '@mantine/form';
-import { useEffect, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Page } from '@src/constants/pages';
 import { Link, useLocation, useNavigate } from 'react-router-dom';

@@ -1,9 +1,9 @@
-import { Configuration } from "webpack";
-import { buildPlugins } from "./buildPlugins";
-import { buildLoaders } from "./buildLoaders";
-import { buildResolvers } from "./buildResolves";
-import { buildDevServer } from "./buildDevServer";
-import { BuildOptions } from "../types";
+import { Configuration } from 'webpack';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolves';
+import { buildDevServer } from './buildDevServer';
+import { BuildOptions } from '../types';
 
 export const buildWebpack = (options: BuildOptions): Configuration => {
   const { mode, paths } = options;
@@ -24,6 +24,6 @@ export const buildWebpack = (options: BuildOptions): Configuration => {
     },
     resolve: buildResolvers(options),
     devtool: isDev ? 'eval-cheap-module-source-map' : 'source-map',
-    devServer: isDev ? buildDevServer(options) : undefined
-  }
+    devServer: isDev ? buildDevServer(options) : undefined,
+  };
 };

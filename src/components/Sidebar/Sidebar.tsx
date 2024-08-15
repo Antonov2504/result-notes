@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { ScrollArea, Stack, Text } from '@mantine/core';
 import { Note } from '../Note';
 import { useSidebarData } from './useSidebarData';

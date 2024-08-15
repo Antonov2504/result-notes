@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { ErrorPageRoutePathEnum } from '@src/pages/ErrorPage/ErrorPage.types';
 import { useAuthContext } from '@src/contexts/AuthContextProvider';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';

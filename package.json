@@ -9,7 +9,8 @@
     "build:prod": "webpack --env mode=production",
     "build:mobile": "webpack --env mode=production --env platform=mobile",
     "build:desktop": "webpack --env mode=production --env platform=desktop",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "serve": "npm run build:prod && npx serve -s build"
   },
   "keywords": [],
   "author": "",
