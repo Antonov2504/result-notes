@@ -25,9 +25,11 @@ export const AuthErrorView = ({ status }: AuthErrorViewProps) => {
       <Styled.Content>
         <Styled.Code>{code}</Styled.Code>
         <Styled.Title>{title}</Styled.Title>
-        <Button variant='fullfield' color='blue' onClick={handleGoHome}>
-          На главную
-        </Button>
+        {code === errorsMock[ErrorPageDescriptionEnum.notFound].code && (
+          <Button variant='fullfield' color='blue' onClick={handleGoHome}>
+            На главную
+          </Button>
+        )}
         {location.pathname === ErrorPageRoutePathEnum.forbidden && (
           <Styled.Footer>
             <Styled.FooterLink to={Page.login} replace state={location.state}>

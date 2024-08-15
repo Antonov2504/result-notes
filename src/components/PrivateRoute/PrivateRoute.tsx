@@ -1,11 +1,10 @@
 import { ErrorPageRoutePathEnum } from '@src/pages/ErrorPage/ErrorPage.types';
-// import { useAuthContext } from '@src/contexts/AuthContextProvider';
+import { useAuthContext } from '@src/contexts/AuthContextProvider';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 export const PrivateRoute = () => {
   const location = useLocation();
-  // const { user } = useAuthContext();
-  const { user } = { user: { name: 'user' } };
+  const { user } = useAuthContext();
 
   if (user === null) {
     return (
