@@ -1,6 +1,6 @@
+import React, { lazy, Suspense } from 'react';
 import { Loader } from '@mantine/core';
 import { NotesPage } from '@src/pages/NotesPage';
-import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Page } from '@src/constants/pages';
 import { ErrorPage } from '@src/pages/ErrorPage';

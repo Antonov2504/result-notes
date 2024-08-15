@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import {
   BackgroundImage,
   Box,
@@ -14,7 +15,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Page } from '@src/constants/pages';
 import { UserData } from '@src/types';
 import { useAuthContext } from '@src/contexts/AuthContextProvider';
-import { useEffect } from 'react';
 import { SigninForm } from './LoginPage.types';
 
 export const LoginPage = () => {

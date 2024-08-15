@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import { Component, PropsWithChildren } from 'react';
+import React, { Component, PropsWithChildren } from 'react';
 import * as Styled from './ErrorBoundary.styled';
 
 type State = {

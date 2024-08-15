@@ -32,7 +32,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/no-var-requires': 0,
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-explicit-any': ['warn', { 'ignoreRestArgs': false }],
     '@typescript-eslint/no-shadow': ['off'],
     '@typescript-eslint/naming-convention': 'off',

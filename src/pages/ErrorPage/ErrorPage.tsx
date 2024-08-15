@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AuthErrorView } from './components/AuthErrorView';
 import { ErrorPageDescriptionEnum, ErrorPageRoutePathEnum } from './ErrorPage.types';

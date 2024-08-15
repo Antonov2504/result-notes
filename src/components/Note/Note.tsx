@@ -1,3 +1,4 @@
+import React from 'react';
 import { TNote } from '@src/types';
 import { JSONContent } from '@tiptap/react';
 import * as Styled from './Note.styled';

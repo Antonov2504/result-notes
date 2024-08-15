@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, rem, Text } from '@mantine/core';
 import { IconX, IconCheck } from '@tabler/icons-react';
 

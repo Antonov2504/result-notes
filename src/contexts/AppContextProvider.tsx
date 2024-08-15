@@ -1,5 +1,5 @@
 import { TNote } from '@src/types';
-import {
+import React, {
   createContext,
   Dispatch,
   ReactNode,

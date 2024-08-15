@@ -1,3 +1,4 @@
+import React from 'react';
 import { AppShell, Burger, Button, Group, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { SearchBox } from '@src/components/SearchBox';

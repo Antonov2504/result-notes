@@ -1,9 +1,9 @@
+import React, { useCallback, useMemo, useState } from 'react';
 import { Button, Group, Text } from '@mantine/core';
 import Highlight from '@tiptap/extension-highlight';
 import Typography from '@tiptap/extension-typography';
 import { Editor, EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import { useCallback, useMemo, useState } from 'react';
 import { modals } from '@mantine/modals';
 import { useAppContext } from '@src/contexts/AppContextProvider';
 import { db } from '@src/db';

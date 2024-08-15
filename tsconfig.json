@@ -37,14 +37,10 @@
   "exclude": [
     "node_modules",
     "babel.config.json",
-    "webpack.config.js",
-    "dist",
+    "build",
     "public"
   ],
   "include": [
-    ".eslintrc.cjs",
-    "src/**/*",
-    "*.config.ts",
-    "*.d.ts"
+    "./**/*"
   ]
 }

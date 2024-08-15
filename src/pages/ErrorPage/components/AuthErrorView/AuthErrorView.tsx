@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Page } from '@src/constants/pages';
 import { Button } from '@mantine/core';
