@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client';
+import '@mantine/notifications/styles.css';
 import '@mantine/tiptap/styles.css';
 import './styles';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,6 +9,7 @@ import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 
+import { Notifications } from '@mantine/notifications';
 import { theme } from './styles/theme';
 
 const App = () => {
@@ -22,6 +24,7 @@ root.render(
       <MantineProvider theme={theme}>
         <ModalsProvider>
           <App />
+          <Notifications />
         </ModalsProvider>
       </MantineProvider>
     </BrowserRouter>

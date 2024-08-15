@@ -1,10 +1,13 @@
-import { AppShell, Burger, Button, Group, Skeleton, Stack, Text, Title } from '@mantine/core';
+import { AppShell, Burger, Button, Group, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Note } from '@src/components/Note';
 import { SearchBox } from '@src/components/SearchBox';
+import { Sidebar } from '@src/components/Sidebar';
 import { Workspace } from '@src/components/Workspace';
 import { useAuthContext } from '@src/contexts/AuthContextProvider';
+import { db } from '@src/db';
 import { useNavigate } from 'react-router-dom';
+import { notifications } from '@mantine/notifications';
+import { content } from './NotesPage.constants';
 
 export const NotesPage = () => {
   const navigate = useNavigate();
@@ -17,6 +20,31 @@ export const NotesPage = () => {
     onSignOut(() => {
       navigate('/login');
     });
+  };
+
+  const addNote = async () => {
+    try {
+      const id = await db.notes.add({
+        description: JSON.stringify(content),
+        createdAt: new Date(),
+      });
+
+      notifications.show({
+        id: `success-add-note-${id}`,
+        position: 'top-right',
+        color: 'green',
+        title: 'Успех',
+        message: `Добавлена новая заметка ${id}`,
+      });
+    } catch (error) {
+      notifications.show({
+        id: `error-add-note`,
+        position: 'top-right',
+        color: 'red',
+        title: 'Ошибка',
+        message: 'Произошла ошибка при добавлении новой заметки',
+      });
+    }
   };
 
   return (
@@ -35,7 +63,7 @@ export const NotesPage = () => {
           <Group>
             <Title order={1}>Заметки</Title>
             <SearchBox />
-            <Button variant='filled' color='green'>
+            <Button variant='filled' color='green' onClick={addNote}>
               Новая заметка
             </Button>
           </Group>
@@ -48,31 +76,9 @@ export const NotesPage = () => {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p='md'>
-        <Stack h={300} bg='var(--mantine-color-body)' align='stretch' justify='flex-start' gap='md'>
-          <Note
-            title='Новая заметка'
-            description='Описание заметки'
-            createdAt={new Date().toLocaleString()}
-          />
-          <Note
-            title='Новая заметка'
-            description='Описание заметки'
-            createdAt={new Date().toLocaleString()}
-          />
-          <Note
-            title='Новая заметка'
-            description='Описание заметки'
-            createdAt={new Date().toLocaleString()}
-          />
-          <Text c='dimmed' mb={10} ta='left'>
-            Список будущих заметок...
-          </Text>
-        </Stack>
+        <Sidebar />
       </AppShell.Navbar>
       <AppShell.Main>
-        <Text c='dimmed' mb={10} ta='left'>
-          Добавьте Вашу первую заметку...
-        </Text>
         <Workspace />
       </AppShell.Main>
     </AppShell>

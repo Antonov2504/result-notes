@@ -19,9 +19,13 @@ export const Container = styled.article<{ $isActive: boolean }>`
 `;
 
 export const Title = styled.h3`
+  width: 200px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
 `;
 
 export const CreatedAt = styled.time`
@@ -31,8 +35,12 @@ export const CreatedAt = styled.time`
 `;
 
 export const Description = styled.p`
+  width: 200px;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   color: #727272;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
 `;
