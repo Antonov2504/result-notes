@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Page } from '@src/constants/pages';
 import { ErrorPage } from '@src/pages/ErrorPage';
 import { AuthContextProvider } from '@src/contexts/AuthContextProvider';
+import { AppContextProvider } from '@src/contexts/AppContextProvider';
 import { PrivateRoute } from '../PrivateRoute';
 import { ErrorBoundary } from '../ErrorBoundary';
 
@@ -20,15 +21,17 @@ export const NavApp = () => {
     <Suspense fallback={<Loader color='blue' />}>
       <ErrorBoundary>
         <AuthContextProvider>
-          <Routes>
-            <Route path={Page.login} element={<LoginPage />} />
-            <Route path={Page.register} element={<RegisterPage />} />
-            <Route path={Page.index} element={<Navigate to={Page.notes} replace />} />
-            <Route element={<PrivateRoute />}>
-              <Route path={Page.notes} element={<NotesPage />} />
-            </Route>
-            <Route path='*' element={<ErrorPage />} />
-          </Routes>
+          <AppContextProvider>
+            <Routes>
+              <Route path={Page.login} element={<LoginPage />} />
+              <Route path={Page.register} element={<RegisterPage />} />
+              <Route path={Page.index} element={<Navigate to={Page.notes} replace />} />
+              <Route element={<PrivateRoute />}>
+                <Route path={Page.notes} element={<NotesPage />} />
+              </Route>
+              <Route path='*' element={<ErrorPage />} />
+            </Routes>
+          </AppContextProvider>
         </AuthContextProvider>
       </ErrorBoundary>
     </Suspense>
