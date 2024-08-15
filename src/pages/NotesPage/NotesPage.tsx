@@ -1,11 +1,23 @@
-import { AppShell, Burger, Button, Group, Skeleton, Stack, Text } from '@mantine/core';
+import { AppShell, Burger, Button, Group, Skeleton, Stack, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Note } from '@src/components/Note';
 import { SearchBox } from '@src/components/SearchBox';
 import { Workspace } from '@src/components/Workspace';
+import { useAuthContext } from '@src/contexts/AuthContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 export const NotesPage = () => {
+  const navigate = useNavigate();
+
   const [opened, { toggle }] = useDisclosure();
+
+  const { user, onSignOut } = useAuthContext();
+
+  const handleSignOut = () => {
+    onSignOut(() => {
+      navigate('/login');
+    });
+  };
 
   return (
     <AppShell
@@ -19,16 +31,17 @@ export const NotesPage = () => {
     >
       <AppShell.Header>
         <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-        <Group h='100%' px='md' >
+        <Group h='100%' px='md'>
           <Group>
+            <Title order={1}>Заметки</Title>
             <SearchBox />
             <Button variant='filled' color='green'>
               Новая заметка
             </Button>
           </Group>
           <Group ml='auto'>
-            <Text c='dimmed'>User Name</Text>
-            <Button variant='transparent' color='red' p={0}>
+            <Text c='dimmed'>{user}</Text>
+            <Button variant='transparent' color='red' p={0} onClick={handleSignOut}>
               Выйти
             </Button>
           </Group>
